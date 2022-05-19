@@ -5,8 +5,8 @@
 
     function somador_1_bit($a, $b, $cin) {
         return [
-            intval(($a and $b) || ($cin and ($a xor $b))),
-            intval($a xor $b xor $cin)
+            COUT => intval(($a and $b) || ($cin and ($a xor $b))),
+            RESULT => intval($a xor $b xor $cin)
         ];
     }
 
