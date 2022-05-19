@@ -11,18 +11,18 @@
     }
 
     function somador_n_bits($n1, $n2, $n) {
-        $result = "";
+        $result = [];
         $v1 = 0;
         $n--;
         while ($n > 0) {
             $a = substr($n1, $n, 1);
             $b = substr($n2, $n, 1);
             $x = somador_1_bit($a, $b, $v1);
-            $result .= $x[RESULT];
+            array_push($result, $x[RESULT]);
             $v1 = $x[COUT];
             $n--;
         }
-        return bindec(strrev($result));
+        return bindec(implode("", array_reverse($result)));
     }
 
     function dec_to_bin ($n, $size=32) {
