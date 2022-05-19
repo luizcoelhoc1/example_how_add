@@ -4,14 +4,10 @@
     define("RESULT", 1);
 
     function somador_1_bit($a, $b, $cin) {
-        if ($a == 0 and $b == 0 and $cin == 0 ) return [0, 0];
-        if ($a == 0 and $b == 0 and $cin == 1 ) return [0, 1];
-        if ($a == 0 and $b == 1 and $cin == 0 ) return [0, 1];
-        if ($a == 0 and $b == 1 and $cin == 1 ) return [1, 0];
-        if ($a == 1 and $b == 0 and $cin == 0 ) return [0, 1];
-        if ($a == 1 and $b == 0 and $cin == 1 ) return [1, 0];
-        if ($a == 1 and $b == 1 and $cin == 0 ) return [1, 0];
-        if ($a == 1 and $b == 1 and $cin == 1 ) return [1, 1];
+        return [
+            intval(($a and $b) || ($cin and ($a xor $b))),
+            intval($a xor $b xor $cin)
+        ];
     }
 
     function somador_n_bits($n1, $n2, $n) {
@@ -38,6 +34,6 @@
         $n2 = dec_to_bin($n2, $size);
         return somador_n_bits($n1, $n2, $size);
     }
-
-    echo add(5, 1);
+    
+    echo add(79,7);
 ?>
